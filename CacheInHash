@@ -174,4 +174,17 @@ namespace HashCache
 
 
     }
+    
+    static void Main(string[] args)
+        {
+            for (int i = 0; i < 1000; i++)
+            {
+                CacheInHash.Add(i.ToString(),i+1,TimeSpan.FromMinutes(i%10));
+
+                CacheInHash.Get((i%10).ToString());
+
+                System.Threading.Thread.Sleep(100);
+            }
+            Console.Read();
+        }
 }
